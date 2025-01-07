@@ -1,0 +1,17 @@
+FROM ./unsloth.Q8_0 (2).gguf
+
+TEMPLATE """The following description indicates how many passengers are onboard and the latitude and longitude of their boarding and alighting locations.
+The prediction of how many US dollars are required for this ride.
+The output is the cost in US dollars for this ride.
+{{ if .Prompt }}>>> Details of the ride:
+{{ .Prompt }}
+{{ end }}>>> cost in US dollars:
+{{ .Response }}<|end_of_text|>"""
+
+PARAMETER stop "<|end_header_id|>"
+PARAMETER stop "<|start_header_id|>"
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|end_of_text|>"
+PARAMETER stop "<|reserved_special_token_"
+PARAMETER temperature 1.5
+PARAMETER min_p 0.9
